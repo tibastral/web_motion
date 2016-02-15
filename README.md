@@ -44,6 +44,46 @@ class AppDelegate
 end
 ```
 
+You also need a Rakefile for the project to work
+
+```ruby
+# ./Rakefile
+$:.unshift("/Library/RubyMotion/lib")
+require 'motion/project/template/ios'
+
+begin
+  require 'bundler'
+  Bundler.require
+rescue LoadError
+end
+
+Motion::Project::App.setup do |app|
+  app.name = 'Your app name'
+  app.version = '0.0.1'
+  app.identifier = 'com.your_company.app_name'
+  # WebKit.framework => for launching external urls directly in Safari (required for WebMotion)
+  app.frameworks += ['WebKit']
+  # https://david-smith.org/iosversionstats/
+  app.deployment_target = '8.4' # required for WebMotion
+
+  app.codesign_certificate = 'codesign_certificate' # ex : 'iPhone Developer: John Doe (UENTOH78)'
+  app.provisioning_profile = 'provisioning_profile' # ex : '~/Library/MobileDevice/Provisioning Profiles/8329ee89-3298-3898-8398-8b3893829823.mobileprovision'
+end
+```
+
+```js
+// Then you can put that code inside your web app to call the native functions directly from your web app !
+$('.share').click(function () {
+  var url = document.location.protocol + "//" + document.location.hostname + document.location.pathname;
+  webkit.messageHandlers.shareButtonPressed.postMessage("Hey, check out that on RushOut : " + url);
+})
+
+$('a[target=_blank]').click(function () {
+  webkit.messageHandlers.openInSafari.postMessage($(this).attr('href'));
+})
+```
+
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/tibastral/web_motion. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
