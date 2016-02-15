@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-You need two files to test WebMotion : an app delegate and a Rakefile (these two files already exists by default)
+You need two files to test WebMotion : an app delegate and a Rakefile (these two files already exists when you create a basic motion project)
 
 ```sh
 motion create mywebmotionproject
