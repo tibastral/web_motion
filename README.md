@@ -20,6 +20,13 @@ Or install it yourself as:
 
 ## Usage
 
+You need two files to test WebMotion : an app delegate and a Rakefile (these two files already exists by default)
+
+```sh
+motion create mywebmotionproject
+cd mywebmotionproject
+```
+
 ```ruby
 # ./app/app_delegate.rb
 class AppDelegate
@@ -71,8 +78,9 @@ Motion::Project::App.setup do |app|
 end
 ```
 
+Then you can put that code inside your web app to call the native functions directly from your web app !
+
 ```js
-// Then you can put that code inside your web app to call the native functions directly from your web app !
 $('.share').click(function () {
   var url = document.location.protocol + "//" + document.location.hostname + document.location.pathname;
   webkit.messageHandlers.shareButtonPressed.postMessage("Hey, check out that on RushOut : " + url);
