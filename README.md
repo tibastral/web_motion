@@ -66,8 +66,8 @@ Motion::Project::App.setup do |app|
   # https://david-smith.org/iosversionstats/
   app.deployment_target = '8.4' # required for WebMotion
 
-  app.codesign_certificate = 'codesign_certificate' # ex : 'iPhone Developer: John Doe (UENTOH78)'
-  app.provisioning_profile = 'provisioning_profile' # ex : '~/Library/MobileDevice/Provisioning Profiles/8329ee89-3298-3898-8398-8b3893829823.mobileprovision'
+  app.codesign_certificate = 'TODO: put a codesign certificate' # ex : 'iPhone Developer: John Doe (UENTOH78)'
+  app.provisioning_profile = 'TODO: put a path to your provisioning_profile' # ex : '~/Library/MobileDevice/Provisioning Profiles/8329ee89-3298-3898-8398-8b3893829823.mobileprovision'
 end
 ```
 
