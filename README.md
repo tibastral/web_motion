@@ -25,7 +25,7 @@ Or install it yourself as:
 class AppDelegate
   def main_controller
     app_url = 'rushoutapp.com' # PUT HERE YOUR OWN APP URL
-    @main_controller ||= WebMotion::WebMotionController.new(url: 'rushoutapp.com')
+    @main_controller ||= WebMotion::WebMotionController.new(url: app_url)
   end
 
   def full_screen_window
