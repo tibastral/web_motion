@@ -15,6 +15,7 @@ class WebMotion::WebMotionController < UIViewController
   def viewDidLoad
      super
      view.loadRequest(request(fullUrl))
+     view.allowsBackForwardNavigationGestures = true
      view.scrollView.addSubview(autoRefresher)
   end
 end
